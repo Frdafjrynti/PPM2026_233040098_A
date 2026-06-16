@@ -1,4 +1,4 @@
-name: pertemuan_2
+name: pertemuan_5
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -30,7 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  image_picker: ^1.1.2   # ← tambah ini
+  cupertino_icons: ^1.0.8
+  http: ^1.2.0
 
 dev_dependencies:
   flutter_test:
