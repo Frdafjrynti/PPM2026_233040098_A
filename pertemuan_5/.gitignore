@@ -1,3 +1,7 @@
+# APK build output (jangan commit binari besar)
+apk_p5/
+*.apk
+
 # Miscellaneous
 *.class
 *.log

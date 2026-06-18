@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'api_client.dart';
 
+// Jika true, validasi judul/isi di sisi client dilewati sehingga form
+// dengan judul kosong tetap dikirim ke server → memicu HTTP 422 (skenario P5).
+// Aktifkan saat build dengan: --dart-define=BYPASS_CLIENT_VALIDATION=true
+const bool kBypassClientValidation =
+    bool.fromEnvironment('BYPASS_CLIENT_VALIDATION', defaultValue: false);
+
 void main() {
   runApp(const MyApp());
 }
@@ -310,7 +316,7 @@ class _CatatanFormPageState extends State<CatatanFormPage> {
   }
 
   Future<void> _simpan() async {
-    if (!_formKey.currentState!.validate()) return;
+    if (!kBypassClientValidation && !_formKey.currentState!.validate()) return;
     setState(() => _menyimpan = true);
     try {
       if (_isEdit) {
